@@ -7,17 +7,17 @@
 # General application configuration
 import Config
 
-config :sangeetha_saccha_surr,
-  ecto_repos: [SangeethaSacchaSurr.Repo]
+config :saccha_surr,
+  ecto_repos: [SacchaSurr.Repo]
 
 # Configures the endpoint
-config :sangeetha_saccha_surr, SangeethaSacchaSurrWeb.Endpoint,
+config :saccha_surr, SuchaaSurrWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [
-    formats: [html: SangeethaSacchaSurrWeb.ErrorHTML, json: SangeethaSacchaSurrWeb.ErrorJSON],
+    formats: [html: SuchaaSurrWeb.ErrorHTML, json: SuchaaSurrWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: SangeethaSacchaSurr.PubSub,
+  pubsub_server: SacchaSurr.PubSub,
   live_view: [signing_salt: "U3bKyJB7"]
 
 # Configures the mailer
@@ -27,7 +27,7 @@ config :sangeetha_saccha_surr, SangeethaSacchaSurrWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :sangeetha_saccha_surr, SangeethaSacchaSurr.Mailer, adapter: Swoosh.Adapters.Local
+config :saccha_surr, SacchaSurr.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,

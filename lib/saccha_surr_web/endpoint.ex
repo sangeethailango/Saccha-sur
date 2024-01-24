@@ -1,12 +1,12 @@
-defmodule SangeethaSacchaSurrWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :sangeetha_saccha_surr
+defmodule SuchaaSurrWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :saccha_surr
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_sangeetha_saccha_surr_key",
+    key: "_saccha_surr_key",
     signing_salt: "9VFALIqV",
     same_site: "Lax"
   ]
@@ -19,9 +19,9 @@ defmodule SangeethaSacchaSurrWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :sangeetha_saccha_surr,
+    from: :saccha_surr,
     gzip: false,
-    only: SangeethaSacchaSurrWeb.static_paths()
+    only: SuchaaSurrWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -29,7 +29,7 @@ defmodule SangeethaSacchaSurrWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :sangeetha_saccha_surr
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :saccha_surr
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -47,5 +47,5 @@ defmodule SangeethaSacchaSurrWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug SangeethaSacchaSurrWeb.Router
+  plug SuchaaSurrWeb.Router
 end

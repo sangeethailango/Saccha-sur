@@ -17,7 +17,10 @@ module.exports = {
       fontFamily :{
         papyrus: ['papyrus'],
         ayuthaya: ['ayuthaya']
-
+      },
+      backgroundImage : {
+       'gradient-mountain': "url('/images/bg.jpg')",
+       'mountain': "url('/images/bg2.jpg')"
       }
     },
   },

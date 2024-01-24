@@ -1,4 +1,4 @@
-defmodule SangeethaSacchaSurrWeb.CoreComponents do
+defmodule SuchaaSurrWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -12,7 +12,7 @@ defmodule SangeethaSacchaSurrWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import SangeethaSacchaSurrWeb.Gettext
+  import SuchaaSurrWeb.Gettext
 
   @doc """
   Renders a modal.
@@ -646,9 +646,9 @@ defmodule SangeethaSacchaSurrWeb.CoreComponents do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(SangeethaSacchaSurrWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(SuchaaSurrWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(SangeethaSacchaSurrWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(SuchaaSurrWeb.Gettext, "errors", msg, opts)
     end
   end
 

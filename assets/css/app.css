@@ -13,3 +13,6 @@
   src: url("/fonts/Ayuthaya.ttf");
 }
 
+bg-class{
+  background-image: url("/images/bg.jpg");
+}

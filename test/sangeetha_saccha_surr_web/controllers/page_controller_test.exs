@@ -1,5 +1,5 @@
-defmodule SangeethaSacchaSurrWeb.PageControllerTest do
-  use SangeethaSacchaSurrWeb.ConnCase
+defmodule SuchaaSurrWeb.PageControllerTest do
+  use SuchaaSurrWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")
