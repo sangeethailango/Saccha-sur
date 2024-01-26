@@ -17,8 +17,8 @@ defmodule SuchaaSurrWeb.Router do
   scope "/", SuchaaSurrWeb do
     pipe_through :browser
 
-    live "/", TellmeastoryLive.Index
-
+    live "/", TellmeastoryLive.Index, :index
+    live "/read-a-story", TellmeastoryLive.Index, :read_a_story
   end
 
   # Other scopes may use custom stacks.
