@@ -19,6 +19,8 @@ defmodule SuchaaSurrWeb.Router do
 
     live "/", TellmeastoryLive.Index, :index
     live "/read-a-story", TellmeastoryLive.Index, :read_a_story
+    live "/buy-book", TellmeastoryLive.Index, :buy_book
+    get "/pay", PageController, :home
   end
 
   # Other scopes may use custom stacks.

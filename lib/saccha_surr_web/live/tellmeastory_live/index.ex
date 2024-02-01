@@ -1,6 +1,7 @@
 defmodule SuchaaSurrWeb.TellmeastoryLive.Index do
   use SuchaaSurrWeb, :live_view
 
+  alias SacchaSurr.Account.User
   def mount(_params, _session, socket) do
     {:ok, socket}
   end
@@ -19,5 +20,9 @@ defmodule SuchaaSurrWeb.TellmeastoryLive.Index do
     |> assign(page_title: "A Sample story")
   end
 
-
+  def apply_action(socket, :buy_book, _params) do
+    socket
+    |> assign(page_title: "Buy a Book")
+    |> assign(user: %User{})
+  end
 end

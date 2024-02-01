@@ -34,6 +34,7 @@ Hooks.PlayTampura = {
     }
   } 
 }
+
 Hooks.StopTampura = {
   mounted() {
     if (audio.play) {
@@ -41,7 +42,8 @@ Hooks.StopTampura = {
     }
   } 
 }
-  
+
+
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks})
 
 // Show progress bar on live navigation and form submits
