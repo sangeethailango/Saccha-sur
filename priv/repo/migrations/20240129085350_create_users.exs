@@ -7,7 +7,7 @@ defmodule SacchaSurr.Repo.Migrations.CreateUsers do
       add :email, :string
       add :phone_number, :integer
       add :book_weight, :integer
-      add :quantity, :string
+      add :quantity, :integer
       add :country, :string
       add :shipping_address, :string
       add :city, :string

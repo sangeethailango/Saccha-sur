@@ -9,7 +9,7 @@ defmodule SacchaSurr.Account.User do
     field :country, :string
     field :email, :string
     field :phone_number, :integer
-    field :quantity, :string
+    field :quantity, :integer
     field :shipping_address, :string
     field :state, :string
 
