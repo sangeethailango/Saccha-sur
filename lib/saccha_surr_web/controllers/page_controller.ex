@@ -1,5 +1,5 @@
-defmodule SangeethaSacchaSurrWeb.PageController do
-  use SangeethaSacchaSurrWeb, :controller
+defmodule SuchaaSurrWeb.PageController do
+  use SuchaaSurrWeb, :controller
 
   def home(conn, _params) do
     # The home page is often custom made,

@@ -1,4 +1,4 @@
-# SangeethaSacchaSurr
+# SacchaSurr
 
 To start your Phoenix server:
 

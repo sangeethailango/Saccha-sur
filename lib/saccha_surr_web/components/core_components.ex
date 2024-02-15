@@ -1,4 +1,4 @@
-defmodule SangeethaSacchaSurrWeb.CoreComponents do
+defmodule SuchaaSurrWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -12,7 +12,7 @@ defmodule SangeethaSacchaSurrWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import SangeethaSacchaSurrWeb.Gettext
+  import SuchaaSurrWeb.Gettext
 
   @doc """
   Renders a modal.
@@ -53,7 +53,7 @@ defmodule SangeethaSacchaSurrWeb.CoreComponents do
       phx-remove={hide_modal(@id)}
       class="relative z-50 hidden"
     >
-      <div id={"#{@id}-bg"} class="fixed inset-0 bg-zinc-50/90 transition-opacity" aria-hidden="true" />
+      <div id={"#{@id}-bg"} class="fixed inset-0 bg-zinc-400 opacity-80 transition-opacity" aria-hidden="true" />
       <div
         class="fixed inset-0 overflow-y-auto"
         aria-labelledby={"#{@id}-title"}
@@ -256,7 +256,7 @@ defmodule SangeethaSacchaSurrWeb.CoreComponents do
     <button
       type={@type}
       class={[
-        "phx-submit-loading:opacity-75 rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3",
+        "phx-submit-loading:opacity-75 rounded-sm bg-[#F97316] py-2 px-3",
         "text-sm font-semibold leading-6 text-white active:text-white/80",
         @class
       ]}
@@ -646,9 +646,9 @@ defmodule SangeethaSacchaSurrWeb.CoreComponents do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(SangeethaSacchaSurrWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(SuchaaSurrWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(SangeethaSacchaSurrWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(SuchaaSurrWeb.Gettext, "errors", msg, opts)
     end
   end
 

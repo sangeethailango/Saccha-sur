@@ -1,4 +1,4 @@
-defmodule SangeethaSacchaSurr.Application do
+defmodule SacchaSurr.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,22 +9,22 @@ defmodule SangeethaSacchaSurr.Application do
   def start(_type, _args) do
     children = [
       # Start the Telemetry supervisor
-      SangeethaSacchaSurrWeb.Telemetry,
+      SuchaaSurrWeb.Telemetry,
       # Start the Ecto repository
-      SangeethaSacchaSurr.Repo,
+      SacchaSurr.Repo,
       # Start the PubSub system
-      {Phoenix.PubSub, name: SangeethaSacchaSurr.PubSub},
+      {Phoenix.PubSub, name: SacchaSurr.PubSub},
       # Start Finch
-      {Finch, name: SangeethaSacchaSurr.Finch},
+      {Finch, name: SacchaSurr.Finch},
       # Start the Endpoint (http/https)
-      SangeethaSacchaSurrWeb.Endpoint
-      # Start a worker by calling: SangeethaSacchaSurr.Worker.start_link(arg)
-      # {SangeethaSacchaSurr.Worker, arg}
+      SuchaaSurrWeb.Endpoint
+      # Start a worker by calling: SacchaSurr.Worker.start_link(arg)
+      # {SacchaSurr.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: SangeethaSacchaSurr.Supervisor]
+    opts = [strategy: :one_for_one, name: SacchaSurr.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -32,7 +32,7 @@ defmodule SangeethaSacchaSurr.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    SangeethaSacchaSurrWeb.Endpoint.config_change(changed, removed)
+    SuchaaSurrWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

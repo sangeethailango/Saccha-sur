@@ -1,12 +1,12 @@
-defmodule SangeethaSacchaSurrWeb do
+defmodule SuchaaSurrWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use SangeethaSacchaSurrWeb, :controller
-      use SangeethaSacchaSurrWeb, :html
+      use SuchaaSurrWeb, :controller
+      use SuchaaSurrWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -17,7 +17,7 @@ defmodule SangeethaSacchaSurrWeb do
   those modules here.
   """
 
-  def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)
+  def static_paths, do: ~w(assets audio fonts images favicon.ico robots.txt)
 
   def router do
     quote do
@@ -40,10 +40,10 @@ defmodule SangeethaSacchaSurrWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: SangeethaSacchaSurrWeb.Layouts]
+        layouts: [html: SuchaaSurrWeb.Layouts]
 
       import Plug.Conn
-      import SangeethaSacchaSurrWeb.Gettext
+      import SuchaaSurrWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -52,7 +52,7 @@ defmodule SangeethaSacchaSurrWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {SangeethaSacchaSurrWeb.Layouts, :app}
+        layout: {SuchaaSurrWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -84,8 +84,8 @@ defmodule SangeethaSacchaSurrWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import SangeethaSacchaSurrWeb.CoreComponents
-      import SangeethaSacchaSurrWeb.Gettext
+      import SuchaaSurrWeb.CoreComponents
+      import SuchaaSurrWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -98,9 +98,9 @@ defmodule SangeethaSacchaSurrWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: SangeethaSacchaSurrWeb.Endpoint,
-        router: SangeethaSacchaSurrWeb.Router,
-        statics: SangeethaSacchaSurrWeb.static_paths()
+        endpoint: SuchaaSurrWeb.Endpoint,
+        router: SuchaaSurrWeb.Router,
+        statics: SuchaaSurrWeb.static_paths()
     end
   end
 

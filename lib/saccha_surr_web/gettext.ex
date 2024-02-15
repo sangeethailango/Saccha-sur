@@ -1,11 +1,11 @@
-defmodule SangeethaSacchaSurrWeb.Gettext do
+defmodule SuchaaSurrWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import SangeethaSacchaSurrWeb.Gettext
+      import SuchaaSurrWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")
@@ -20,5 +20,5 @@ defmodule SangeethaSacchaSurrWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :sangeetha_saccha_surr
+  use Gettext, otp_app: :saccha_surr
 end

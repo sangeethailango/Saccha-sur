@@ -17,8 +17,7 @@ module.exports = {
       fontFamily :{
         papyrus: ['papyrus'],
         ayuthaya: ['ayuthaya']
-
-      }
+      },
     },
   },
   plugins: [
