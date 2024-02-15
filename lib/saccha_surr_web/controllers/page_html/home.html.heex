@@ -3,14 +3,16 @@
   <script>
   var options = {
       "key": "rzp_test_270oaMCzf0ozoH",
-      "amount": "3" , // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      "amount": "3" ,
       "currency": "INR",
       "name": "Acme Corp",
       "description": "Test Transaction",
       "image": "https://example.com/your_logo",
-      "order_id": "<%= @order_id %>"
+      "order_id": "<%= @order_id %>", 
+      "callback_url": "http://localhost:4000/successfull_payment",
   };
 
+  var rzp1 = new Razorpay(options);
   window.onload = function(){
     var rzp1 = new Razorpay(options);
     rzp1.open();

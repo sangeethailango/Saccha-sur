@@ -10,6 +10,14 @@ defmodule SuchaaSurrWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :payment_successfull do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_live_flash
+    plug :put_root_layout, {SuchaaSurrWeb.Layouts, :root}
+    plug :put_secure_browser_headers
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -22,6 +30,13 @@ defmodule SuchaaSurrWeb.Router do
     live "/buy-book", TellmeastoryLive.Index, :buy_book
     get "/pay", PageController, :home
   end
+
+  scope "/", SuchaaSurrWeb do
+    pipe_through :payment_successfull
+
+    post "/successfull_payment", PageController, :successful_payment
+  end
+
 
   # Other scopes may use custom stacks.
   # scope "/api", SuchaaSurrWeb do

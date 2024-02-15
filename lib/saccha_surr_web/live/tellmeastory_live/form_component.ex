@@ -34,7 +34,7 @@ defmodule SuchaaSurrWeb.TellmeastoryLive.FormComponent do
             Email
           </label>
           <div class="col-span-2 sm:mt-0">
-              <.input field={@form[:email]} type="email" value ={@book_amount} />
+              <.input field={@form[:email]} type="email" />
           </div>
         </div>
         <div>
@@ -73,13 +73,17 @@ defmodule SuchaaSurrWeb.TellmeastoryLive.FormComponent do
         </div>
         <div>
           <label for="number-input" class="block text-sm font-medium leading-6 text-gray-900 pt-4">Book Count:</label>
-          <.input field={@form[:quantity]} type="number" id="number-input"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="0" required />
+          <.input field={@form[:quantity]} type="number" id="number-input" min="1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="0"  />
+        </div>
+        <div>
+          <label for="auto-fill" class="block text-sm font-medium leading-6 text-gray-900 pt-4">Book Price:</label>
+          <.input field={@form[:book_price]} value={@book_amount} id="auto-fill" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="0"  />
         </div>
       </section>
      </section>
      <div class="flex flex-row justify-between pt-10 ">
             <span>Total Amount </span>
-              <.button value="submit" >  Pay ₹500 </.button>
+              <.button value="submit" >  Pay ₹<%= @book_amount%></.button>
           </div>
       </.simple_form>
      </main>
@@ -95,6 +99,16 @@ defmodule SuchaaSurrWeb.TellmeastoryLive.FormComponent do
      |> assign(order_id: "")
      |> assign(book_amount: "500")
      |> assign_form(changeset)
+    }
+  end
+
+  def handle_event("validate", %{"user" => user_params}, socket) do
+    IO.inspect(user_params, label: "User params")
+    book_amount =  Account.calculate_book_amount(user_params["quantity"])
+
+    {:noreply,
+    socket
+    |> assign(book_amount: book_amount)
     }
   end
 
@@ -132,14 +146,6 @@ defmodule SuchaaSurrWeb.TellmeastoryLive.FormComponent do
     }
   end
 
-  def handle_event("validate", %{"user" => user_params}, socket) do
-    book_amount =  Account.calculate_book_amount(user_params["quantity"])
-
-    {:noreply,
-    socket
-    |> assign(book_amount: book_amount)
-    }
-  end
 
   defp assign_form(socket, %Ecto.Changeset{} = changeset) do
     assign(socket, :form, to_form(changeset))
