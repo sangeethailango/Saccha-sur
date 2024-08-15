@@ -19,7 +19,27 @@ defmodule SacchaSurr.Account.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :email, :phone_number, :book_weight, :quantity, :country, :shipping_address, :city, :state])
-    |> validate_required([:name, :email, :phone_number, :book_weight, :quantity, :country, :shipping_address, :city, :state])
+    |> cast(attrs, [
+      :name,
+      :email,
+      :phone_number,
+      :book_weight,
+      :quantity,
+      :country,
+      :shipping_address,
+      :city,
+      :state
+    ])
+    |> validate_required([
+      :name,
+      :email,
+      :phone_number,
+      :book_weight,
+      :quantity,
+      :country,
+      :shipping_address,
+      :city,
+      :state
+    ])
   end
 end

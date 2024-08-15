@@ -53,6 +53,7 @@ defmodule SacchaSurr.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:poison, "~> 5.0"},
       {:httpoison, "~> 1.8"},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end
 

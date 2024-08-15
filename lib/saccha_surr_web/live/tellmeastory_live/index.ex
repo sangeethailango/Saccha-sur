@@ -4,10 +4,7 @@ defmodule SuchaaSurrWeb.TellmeastoryLive.Index do
   alias SacchaSurr.Account.User
 
   def mount(_params, _session, socket) do
-
-
-          {:ok,
-                    socket}
+    {:ok, socket}
   end
 
   def handle_params(params, _uri, socket) do

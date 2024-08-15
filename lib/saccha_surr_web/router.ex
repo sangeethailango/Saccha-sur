@@ -37,7 +37,6 @@ defmodule SuchaaSurrWeb.Router do
     post "/successfull_payment", PageController, :successful_payment
   end
 
-
   # Other scopes may use custom stacks.
   # scope "/api", SuchaaSurrWeb do
   #   pipe_through :api
