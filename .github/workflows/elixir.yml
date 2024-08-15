@@ -6,6 +6,9 @@ jobs:
   format:
     name: Format
     runs-on: ubuntu-20.04
+    env:
+      otp: 27
+      elixir: 1.17.2
 
     steps:
       - uses: actions/checkout@v3
