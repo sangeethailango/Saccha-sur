@@ -7,7 +7,9 @@ defmodule SuchaaSurrWeb.TellmeastoryLive.Index do
   end
 
   def handle_params(params, _uri, socket) do
-    {:noreply, apply_action(socket, socket.assigns.live_action, params)}
+
+
+          {:noreply, apply_action(socket, socket.assigns.live_action, params)}
   end
 
   def apply_action(socket, :index, _params) do
