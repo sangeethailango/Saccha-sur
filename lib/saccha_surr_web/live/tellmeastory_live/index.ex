@@ -2,8 +2,12 @@ defmodule SuchaaSurrWeb.TellmeastoryLive.Index do
   use SuchaaSurrWeb, :live_view
 
   alias SacchaSurr.Account.User
+
   def mount(_params, _session, socket) do
-    {:ok, socket}
+
+
+          {:ok,
+                    socket}
   end
 
   def handle_params(params, _uri, socket) do
