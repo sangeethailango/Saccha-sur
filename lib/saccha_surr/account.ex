@@ -1,5 +1,4 @@
 defmodule SacchaSurr.Account do
-
   alias SacchaSurr.Account.User
 
   def user_changeset(%User{} = user, attrs \\ %{}) do
