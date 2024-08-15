@@ -8,8 +8,11 @@ defmodule SuchaaSurrWeb.TellmeastoryLive.FormComponent do
 
   def render(assigns) do
     ~H"""
+
+
+
      <main>
-     <p class="text-center text-[#F97316] font-bold">Order Details</p>
+            <p class="text-center text-[#F97316] font-bold">Order Details</p>
       <.simple_form for={@form} phx-target={@myself} phx-change="validate" phx-submit="pay" >
       <section class="flex flex-row justify-between">
        <section>
