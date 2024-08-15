@@ -1,39 +1,43 @@
-name: Elixir CI
+name: CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+on: [push, pull_request]
 
 jobs:
-  build:
-
-    name: Build and test
-    runs-on: ubuntu-latest
+  format:
+    name: Format
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Install OTP and Elixir
-          uses: erlef/setup-beam@v1
-          with:
-            otp-version: ${{ env.otp }}
-            elixir-version: ${{ env.elixir }}
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: ${{ env.otp }}
+          elixir-version: ${{ env.elixir }}
+
       - name: Cache dependencies
-          uses: actions/cache@v3
-          with:s
-            path: |
-              deps
-              _build
-            key: ${{ runner.os }}-elixir-${{ env.elixir }}-otp-${{ env.otp }}-${{ hashFiles('**/mix.lock') }}
+        uses: actions/cache@v3
+        with:
+          path: |
+            deps
+            _build
+          key: ${{ runner.os }}-elixir-${{ env.elixir }}-otp-${{ env.otp }}-${{ hashFiles('**/mix.lock') }}
+
       - name: Install dependencies
-          run: mix do deps.get, deps.compile
-      - name: Run tests
-        run: mix test
-      - name: Run credo
-        run: mix credo
+        run: mix do deps.get, deps.compile
+
+      - name: Check compilation warnings
+        run: mix compile --warnings-as-errors
+
       - name: Check formatting
         run: mix format --check-formatted
+
+      - name: Verify seeds
+        run: mix ecto.setup
+
+      - name: Run test
+        run: mix test
+
+      - name: Run credo
+        run: mix credo
